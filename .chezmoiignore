@@ -1,0 +1,7 @@
+.gitignore
+.vscode
+
+{{ if ne .chezmoi.os "windows" }}
+OneDrive
+keyhac
+{{ end }}

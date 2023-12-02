@@ -1,0 +1,35 @@
+{:main [{:des "CapsLock to Right-Control"
+         :rules [[:##caps_lock :right_control]]}
+        {:des "modded-cursor"
+         :rules [[:!W##n :!Eleft_arrow]
+                 [:!W##m :!Eright_arrow]
+                 [:!W##i :!Fup_arrow]
+                 [:!W##u :!Fdown_arrow]]}
+        {:des "cursor"
+         :rules [[:!W##h :left_arrow]
+                 [:!W##j :down_arrow]
+                 [:!W##k :up_arrow]
+                 [:!W##l :right_arrow]]}
+        {:des "home-end/word-back"
+         :rules [[:!W##comma :!Qleft_arrow]
+                 [:!W##period :!Qright_arrow]]}
+        {:des "backspace/esc"
+         :rules [[:!W##delete_or_backspace :!Fdelete_or_backspace]
+                 [:grave_accent_and_tilde :escape]
+                 [:!Wgrave_accent_and_tilde :grave_accent_and_tilde]
+                 [:!Sescape :!Sgrave_accent_and_tilde]
+                 [:!Rescape :!Sgrave_accent_and_tilde]
+                 [:!W##e :escape]]}
+        {:des "function-key"
+         :rules [[:!W##1 :f1]
+                 [:!W##2 :f2]
+                 [:!W##3 :f3]
+                 [:!W##4 :f4]
+                 [:!W##5 :f5]
+                 [:!W##6 :f6]
+                 [:!W##7 :f7]
+                 [:!W##8 :f8]
+                 [:!W##9 :f9]
+                 [:!W##0 :f10]
+                 [:!W##hyphen :f11]
+                 [:!W##equal_sign :f12]]}]}

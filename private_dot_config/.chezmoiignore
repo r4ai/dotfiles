@@ -1,0 +1,7 @@
+{{ if ne .chezmoi.os "macos" }}
+private_karabiner
+{{ end }}
+
+{{ if eq .chezmoi.os "windows" }}
+kitty
+{{ end }}

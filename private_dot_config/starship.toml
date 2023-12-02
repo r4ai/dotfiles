@@ -1,0 +1,15 @@
+add_newline = true
+command_timeout = 10000
+
+[hostname]
+disabled = true
+
+[username]
+disabled = true
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+
+[git_status]
+disabled=true

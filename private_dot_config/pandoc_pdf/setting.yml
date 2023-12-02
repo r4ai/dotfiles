@@ -1,0 +1,7 @@
+docker:
+    use_docker: false
+    docker_image: 'r4ai/pandoc'
+    volumes:
+        - "$(pwd):/build"
+    other_option: ""   #Ex. "--user $(id -u):$(id -g)"
+default_preset: 'latex'

@@ -1,0 +1,91 @@
+latex:
+    to: latex
+    pdf-engine: xelatex
+    standalone: true
+    listings: true
+    variables:
+        lang: ja
+        luatexjapresetoptions: haranoaji
+        classoption: pandoc
+    filters:
+        - pandoc-crossref
+    include-in-header:
+        - ${.}/header.tex
+        - ${.}/deeplists.tex
+    metadata:
+        listings: true
+        documentclass: bxjsreport
+        geometry: a4paper
+        figureTitle: "図"
+        tableTitle: "表"
+        listingTitle: "コード"
+        figPrefix: "図"
+        eqnPrefix: "式"
+        tblPrefix: "表"
+        lstPrefix: "コード"
+cs:
+    to: latex
+    pdf-engine: xelatex
+    listings: true
+    number-sections: true
+    variables:
+        lang: ja
+        luatexjapresetoptions: haranoaji
+        classoption:
+            - pandoc
+            - titlepage
+    filters:
+        - pandoc-crossref
+    include-in-header:
+        - ${.}/header.tex
+        - ${.}/deeplists.tex
+    metadata:
+        listings: true
+        documentclass: bxjsarticle
+        geometry: a4paper
+        figureTitle: "図"
+        tableTitle: "表"
+        listingTitle: "コード"
+        figPrefix: "図"
+        eqnPrefix: "式"
+        tblPrefix: "表"
+        lstPrefix: "コード"
+report:
+    to: latex
+    pdf-engine: xelatex
+    standalone: true
+    listings: true
+    number-sections: true
+    variables:
+        lang: ja
+        luatexjapresetoptions: haranoaji
+        classoption: pandoc
+    filters:
+        - pandoc-crossref
+    include-in-header:
+        - ${.}/header.tex
+        - ${.}/deeplists.tex
+    metadata:
+        listings: true
+        documentclass: bxjsarticle
+        geometry: a4paper
+        figureTitle: "図"
+        tableTitle: "表"
+        listingTitle: "コード"
+        figPrefix: "図"
+        eqnPrefix: "式"
+        tblPrefix: "表"
+        lstPrefix: "コード"
+html5:
+    to: html5
+    template: easy_template.html
+    metadata:
+        figureTitle: "図"
+        tableTitle: "表"
+        listingTitle: "コード"
+        figPrefix: "図"
+        eqnPrefix: "式"
+        tblPrefix: "表"
+        lstPrefix: "コード"
+    filters:
+        - pandoc-crossref

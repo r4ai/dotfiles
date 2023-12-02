@@ -1,0 +1,58 @@
+{
+  "modifier": {
+    /*
+      User0 ~ User3 まで登録可能
+      U0- ~ U3- で呼び出し
+      */
+
+    "132": "User0" // CapsLock(F21) → U0-
+  },
+  "hotkeys": {
+    "IME": {
+      "U0-Space": "(243)"
+    },
+    "cursorMove": {
+      "U0-k": "Up",
+      "U0-j": "Down",
+      "U0-h": "Left",
+      "U0-l": "Right",
+      "U0-n": "Ctrl-Left",
+      "U0-m": "Ctrl-Right",
+
+      "U0-Comma": "Home",
+      "U0-Period": "End",
+
+      "U0-i": "PageUp",
+      "U0-u": "PageDown"
+    },
+    "controlKey": {
+      "U0-C": "Ctrl-C",
+      "U0-V": "Ctrl-V",
+      "U0-F": "Ctrl-F"
+    },
+    "functionKey": {
+      "U0-1": "F1",
+      "U0-2": "F2",
+      "U0-3": "F3",
+      "U0-4": "F4",
+      "U0-5": "F5",
+      "U0-6": "F6",
+      "U0-7": "F7",
+      "U0-8": "F8",
+      "U0-9": "F9",
+      "U0-0": "F10",
+      "U0-Minus": "F11",
+      "U0-Plus": "F12"
+    },
+    "mac-command": {
+      "U0-Tab": "Ctrl-Tab",
+      "Ctrl-Tab": "Alt-Tab"
+    },
+    "others": {
+      "U0-Back": "Delete",
+      "Alt-Space": "Ctrl-Alt-Shift-G",
+      "U0-O": "127", // F16
+      "U0-Y": "126" // F15
+    }
+  }
+}

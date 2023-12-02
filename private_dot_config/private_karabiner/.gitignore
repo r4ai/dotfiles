@@ -1,0 +1,4 @@
+private_automatic_backups
+.lsp
+.lsp_cache
+**/.cache
