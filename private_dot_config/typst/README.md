@@ -77,7 +77,8 @@ rm $env:APPDATA\typst\packages\local\jsreport
 )
 ```
 
-詳しくは、[sample/sample-report.typ](./sample/sample-report.typ)を参照してください。
+> [!IMPORTANT]
+> 詳しくは、[sample/sample-report.typ](./sample/sample-report.typ) を参照してください。
 
 #### コードブロックについて
 
