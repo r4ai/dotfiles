@@ -14,10 +14,32 @@
 
 ### テンプレートのインストール
 
-以下のコマンドを実行してください。
+#### 自動インストール
+
+このレポジトリをクローンして、このREADMEがあるディレクトリで以下のコマンドを実行してください。
 
 ```sh
 deno run -A install.ts
+```
+
+#### 手動インストール
+
+`./template.typ`をコピーして、レポートのファイルの先頭に以下のコードを追加することでも使用できます。
+
+```typ
+#import "./template.typ": report, code-info
+#show: report.with(
+  title: [
+    #text(font: "Noto Emoji")[#emoji.crab] \
+    計算機科学基礎実験 \
+    第一回レポート \
+    Rustによるプログラミング演習
+  ],
+  author: [
+    IS科 \
+    Rai
+  ]
+)
 ```
 
 ### テンプレートのアンインストール
