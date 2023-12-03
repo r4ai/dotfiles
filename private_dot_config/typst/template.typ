@@ -166,6 +166,9 @@
     #it
   ]
 
+  // Configure figures
+  show figure: set block(spacing: 2em, above: 2em, below: 2em)
+
   // Configure Code
   show raw.where(block: true): it => locate(loc => {
     let cur-code-info = code-info-state.at(loc)
@@ -217,6 +220,7 @@
           #set align(left)
           #set par(leading: 0.85em)
           #set text(font: mono-font, size: 9pt)
+          #set block(spacing: 1em, above: 1em, below: 1em)
           #line(length: codeblock-width)
           #block(
             inset: (
@@ -239,6 +243,7 @@
 
     code-block
   })
+  show raw.where(block: false): set text(size: 9pt)
 
   // Configure table
   show figure.where(kind: table): set figure.caption(position: top)
