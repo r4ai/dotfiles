@@ -248,6 +248,9 @@
   // Configure table
   show figure.where(kind: table): set figure.caption(position: top)
 
+  // Configure bibliography
+  show bibliography: set text(lang: "ja")
+
   // Display the title, author, and date.
   if title-type == "fullpage" {
     page(numbering: none)[
