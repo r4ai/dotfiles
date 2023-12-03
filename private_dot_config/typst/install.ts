@@ -83,5 +83,5 @@ console.log(
 console.log(`The package is stored in \`${packageDir}\``);
 console.log("");
 console.log(
-  `You can import the package with \`#import "@local/${packageMeta.name}": *\``
+  `You can import the package with \`#import "@local/${packageMeta.name}:${packageMeta.version}": *\``
 );
