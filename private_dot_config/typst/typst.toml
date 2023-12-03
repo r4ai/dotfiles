@@ -1,0 +1,7 @@
+[package]
+name = "jsreport"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["rai"]
+license = "MIT"
+description = "日本語環境でのレポート作成用テンプレート"

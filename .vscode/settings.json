@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["Astro", "chezmoi", "Dotfiles", "Karabiner", "Nvim", "Zenn"]
+  "cSpell.words": ["Astro", "chezmoi", "Dotfiles", "Karabiner", "Nvim", "Zenn"],
+  "deno.enable": true,
+  "deno.lint": true,
+  "deno.unstable": true
 }

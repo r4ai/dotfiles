@@ -1,5 +1,5 @@
 #import "../math.typ": *
-#import "../template.typ": report, code-info
+#import "@local/jsreport:0.1.0": report, code-info
 #show: report.with(
   title: [
     #text(font: "Noto Emoji")[#emoji.crab] \
