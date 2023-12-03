@@ -329,7 +329,7 @@ $ E[e^(t X)] = exp[mu t + (sigma^2 t^2)/2] $
 $ E[X] &= lr(dif/(dif t) E[e^(t X)] |)_(t=0) \
        &= lr(dif/(dif t) exp[mu t + (sigma^2 t^2)/2] |)_(t=0) \
        &= (mu + sigma^2 t) exp lr([mu t + (sigma^2 t^2)/2] |)_(t=0) \
-       &= mu $
+       &= mu $ <eq:moment-1>
 
 である。
 
@@ -338,9 +338,9 @@ $ E[X] &= lr(dif/(dif t) E[e^(t X)] |)_(t=0) \
 $ E[X^2] &= lr(dif^2/(dif t^2) E[e^(t X)] |)_(t=0) \
          &= dif/(dif t) (mu + sigma^2 t) exp lr([mu t + (sigma^2 t^2)/2] |)_(t=0) \
          &= sigma^2 exp [mu t + (sigma^2 t^2)/2] + (mu + sigma^2 t)^2 exp lr([mu t + (sigma^2 t^2)/2] |)_(t=0) \
-         &= sigma^2 + mu^2 $
+         &= sigma^2 + mu^2 $ <eq:moment-2>
 
-である。よって、正規分布の分散は、
+である。よって、 @eq:moment-1 と @eq:moment-2 より正規分布の分散は、
 
 $ V[X] &= E[X^2] - E[X^2] \
        &= sigma^2 + mu^2 - mu^2 \

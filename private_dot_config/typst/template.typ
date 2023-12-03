@@ -111,7 +111,20 @@
 
   // Configure equation numbering and spacing
   set math.equation(numbering: "(1)")
-  show math.equation.where(block: true): set block(spacing: 1em)
+  show math.equation.where(block: true): it => {
+    set block(spacing: 1em)
+    if it.numbering == none {
+      return it  // 停止性を保証する
+    }
+
+    // ラベルがある場合のみ、式に番号を振る
+    if it.has("label") {
+      it
+    } else {
+      math.equation(block: true, numbering: none)[#it.body]
+      counter(math.equation).update(n => n - 1)
+    }
+  }
   show math.equation.where(block: false): it => locate(loc => [
     #h(0.25em, weak: true)
     #it
@@ -130,10 +143,10 @@
       return link(
         elem.location(),
         [
-          式 #numbering(
+          式 $#numbering(
             elem.numbering,
             ..counter(math.equation).at(it.element.location())
-          )
+          )$
         ]
       )
     }
