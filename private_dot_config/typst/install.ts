@@ -39,7 +39,7 @@ type Package = {
 };
 
 /**
- * Get the package metadata from package.toml.
+ * Get the package metadata from typst.toml.
  */
 const getPackageMeta = (packageTomlPath: string) => {
   const packageToml = Deno.readTextFileSync(packageTomlPath);
@@ -50,7 +50,7 @@ const getPackageMeta = (packageTomlPath: string) => {
 // Get the data directory
 const dataDir = getDataDir();
 
-// Read the package info from package.toml
+// Read the package metadata from typst.toml
 const packageMeta = getPackageMeta(TYPST_TOML_PATH);
 
 // Create the package directory
