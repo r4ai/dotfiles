@@ -173,6 +173,7 @@
     let codeblock-width = 95%
 
     set text(font: body-font)
+    show figure: set block(breakable: true)
     set figure.caption(
       position: top,
       separator:
@@ -181,7 +182,7 @@
     )
 
     show raw.line: it => {
-      let shouHighlight = type(highlight-line) == int and highlight-line == it.number
+      let showHighlight = type(highlight-line) == int and highlight-line == it.number
       let line = [
         #if cur-code-info.show-line-numbers {
           it.number + cur-code-info.start-line - 1
@@ -189,7 +190,7 @@
         #h(1em)
         #it
       ]
-      if shouHighlight {
+      if showHighlight {
         highlight(fill: aqua)[#line]
       } else {
         line
@@ -214,13 +215,16 @@
         gap: 1em,
         [
           #set align(left)
-          #set par(leading: 1em)
+          #set par(leading: 0.85em)
           #set text(font: mono-font, size: 9pt)
           #line(length: codeblock-width)
-          #block(inset: (
-            left: 0.5em,
-            right: 0.5em,
-          ))[
+          #block(
+            inset: (
+              left: 0.5em,
+              right: 0.5em,
+            ),
+            breakable: true,
+          )[
             #it
           ]
           #line(length: codeblock-width)
