@@ -16,10 +16,10 @@ end
 #! ---ALIAS SETTING---
 #* eza, exa, ls
 if type -q eza
-    alias l 'exa -F --icons'
-    alias ll 'exa -laF --icons'
-    alias lll 'exa -lF --icons'
-    alias lt 'exa -laT --icons'
+    alias l 'eza -F --icons'
+    alias ll 'eza -laF --icons'
+    alias lll 'eza -lF --icons'
+    alias lt 'eza -laT --icons'
 else if type -q exa
     alias l 'exa -F --icons'
     alias ll 'exa -laF --icons'
