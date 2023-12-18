@@ -140,10 +140,3 @@ end
 if type -q nix
     abbr nix-install "nix profile install nixpkgs#"
 end
-
-#! ---ON_EXIT---
-function on_exit --on-event fish_exit
-    if type -q z
-        z --clear
-    end
-end
