@@ -140,3 +140,9 @@ end
 if type -q nix
     abbr nix-install "nix profile install nixpkgs#"
 end
+
+#* z
+if type -q z
+    abbr cd z
+end
+
