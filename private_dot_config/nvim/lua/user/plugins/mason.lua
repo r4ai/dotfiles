@@ -9,7 +9,6 @@ return {
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
         "lua_ls",        -- lua lsp
         "tsserver",      -- typescript lsp
-        "ocamllsp",      -- ocaml lsp
         "pyright",       -- python type checker
         "rust_analyzer", -- rust lsp
         "clangd",        -- C++ lsp
@@ -25,7 +24,6 @@ return {
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
         -- "stylua",
         "prettier",
-        "ocamlformat",  -- ocaml formatter
         "black",        -- pytyon formatter
         "ruff",         -- python linter
         "debugpy",      -- python debugger
