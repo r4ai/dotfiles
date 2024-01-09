@@ -146,3 +146,8 @@ if type -q z
     abbr cd z
 end
 
+#* xh
+if type -q xh
+    abbr http xh
+    abbr https xh --https
+end
