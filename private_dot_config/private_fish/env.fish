@@ -145,6 +145,12 @@ if test -e "$HOME/.asdf"
     end
 end
 
+#* mise
+if type -q mise
+    mise activate fish | source
+    fish_add_path "~/.local/share/mise/shims"
+end
+
 #* cargo
 if [ -d "$HOME/.cargo" ]
     fish_add_path "$HOME/.cargo/bin"
