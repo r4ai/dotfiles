@@ -6,5 +6,5 @@
 - Shell: Fish
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/init.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/init.sh)"
 ```
