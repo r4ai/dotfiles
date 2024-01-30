@@ -1,0 +1,8 @@
+{
+  "version": "3",
+  "redirects": {
+    "https://deno.land/x/esbuild/wasm.js": "https://deno.land/x/esbuild@v0.20.0/wasm.js",
+    "https://deno.land/x/esbuild_deno_loader/mod.ts": "https://deno.land/x/esbuild_deno_loader@0.8.5/mod.ts"
+  },
+  "remote": {}
+}

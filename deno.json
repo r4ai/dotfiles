@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "init": "./init/base/init.sh",
+    "build": "deno run -A ./init/build.ts"
+  },
+  "fmt": {
+    "semiColons": false
+  }
+}

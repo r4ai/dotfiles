@@ -29,6 +29,12 @@ eval "$(mise activate bash)"
 
 # Install deno
 mise use -g deno
-reload
-
-deno run -A "$(curl -fsSL https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/src/main.ts)"
+program=$(
+  if [ "$DEV" = "true" ]; then
+    echo "./main.ts"
+  else
+    echo "https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/src/main.ts"
+  fi
+)
+echo "program: $program"
+deno run -A "$program"

@@ -1,7 +1,7 @@
-import { $ } from "./dependencies.ts";
+import { $ } from "./dependencies.ts"
 
 export const isWsl = () =>
   Deno.build.os === "linux" &&
-  Deno.osRelease().toLowerCase().includes("microsoft");
+  Deno.osRelease().toLowerCase().includes("microsoft")
 
-export const reload = () => $`exec $SHELL -l`;
+export const reload = () => $`exec $SHELL -l`
