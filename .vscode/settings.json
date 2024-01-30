@@ -2,5 +2,8 @@
   "cSpell.words": ["Astro", "chezmoi", "Dotfiles", "Karabiner", "Nvim", "Zenn"],
   "deno.enable": true,
   "deno.lint": true,
-  "deno.unstable": true
+  "deno.unstable": true,
+  "[typescript][javascript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
 }

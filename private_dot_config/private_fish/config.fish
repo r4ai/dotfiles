@@ -151,3 +151,8 @@ if type -q xh
     abbr http xh
     abbr https xh --https
 end
+
+#* mise
+if type -q mise
+  abbr asdf mise
+end

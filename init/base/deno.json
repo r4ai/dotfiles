@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "init": "./init.sh"
+  },
+  "fmt": {
+    "semiColons": false
+  }
+}

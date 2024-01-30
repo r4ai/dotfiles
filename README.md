@@ -1,6 +1,12 @@
 # Dotfilesgs
 
-## QuickStart
+## Quick Setup
+
+```
+/bin/bash -c "$(curl -fsSL https://https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/init.sh)"
+```
+
+## Manual Setup
 
 ### Install chezmoi
 

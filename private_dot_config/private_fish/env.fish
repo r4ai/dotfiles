@@ -21,8 +21,8 @@ end
 if test (__get_os_name -w) = true; and not set -q WINDOWS_HOME
     set_color red
     echo "Error: \$WINDOWS_HOME variable does not exist."
-    set_color normal
     echo "       Please set the \$WINDOWS_HOME variable to the path of the Windows home directory."
+    set_color normal
 
     if __confirm "Set \$WINDOWS_HOME? [y/N] "
         read -P "Please enter the path of the Windows home directory (e.g. `/mnt/c/Users/r4ai`): " -xg WINDOWS_HOME
@@ -63,7 +63,7 @@ if test (__get_os_name -w) = true
 end
 
 # ---UNIVERSAL SETTINGS---
-#* valta(node.js version manager)
+#* volta(node.js version manager)
 if test -e "$HOME/.volta"
     set -x VOLTA_HOME "$HOME/.volta"
     fish_add_path "$VOLTA_HOME/bin"
