@@ -34,8 +34,15 @@ const initChezmoi = async () => {
   await reload();
 };
 
+const initFisher = async () => {
+  await $`curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher`;
+
+  await $`fisher install r4ai/my_fish_functions`;
+};
+
 const main = async () => {
   await $`brew install ${packages.join(" ")}`;
   await initChezmoi();
+  await initFisher();
 };
 await main();
