@@ -2,7 +2,9 @@
 
 ## Quick Setup
 
-```
+Homebrew, mise, chezmoi, fish shell, ... をインストールして、このdotfilesを適用するスクリプト：
+
+```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/init.sh)"
 ```
 
