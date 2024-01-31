@@ -4,10 +4,8 @@ export const isWsl = () =>
   Deno.build.os === "linux" &&
   Deno.osRelease().toLowerCase().includes("microsoft")
 
-export const reload = () => $`exec $SHELL -l`
-
 export const which = async (command: string) =>
-  (await $`command -v ${command}`.text()).trim()
+  (await $`fish -c "which ${command}"`.text()).trim()
 
 export const exists = async (command: string) => {
   try {

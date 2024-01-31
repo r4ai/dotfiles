@@ -1,14 +1,14 @@
 import { $, path } from "./dependencies.ts"
 import { packages } from "./packages.ts"
-import { isWsl, reload } from "./utils.ts"
+import { isWsl } from "./utils.ts"
 import { fishConfigDir } from "./env.ts"
 import { which } from "./utils.ts"
-import { exists } from "./utils.ts"
 
 const installBrewPackages = async () => {
   await $`brew update`
+  const installedPackages = await $`brew list`.lines()
   for (const pkg of packages) {
-    if (await exists(pkg)) {
+    if (installedPackages.includes(pkg)) {
       continue
     }
     await $`brew install ${pkg}`
@@ -41,16 +41,16 @@ const initChezmoi = async () => {
   }
 
   // Set active shell to fish
-  await $`chsh -s ${await which("fish")}`
-
-  // Reload shell to check if fish config is working
-  await reload()
+  const currentShell = Deno.env.get("SHELL")
+  const fishShell = await which("fish")
+  if (currentShell !== fishShell) {
+    await $`chsh -s ${fishShell}`
+  }
 }
 
 const initFisher = async () => {
-  await $`curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher`
-
-  await $`fisher install r4ai/my_fish_functions`
+  await $`fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"`
+  await $`fish -c "fisher install r4ai/my_fish_functions"`
 }
 
 const main = async () => {
