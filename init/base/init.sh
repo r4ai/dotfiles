@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 
 brew_install() {
-  to_install_pkgs=()
   for pkg in "$@"; do
     if ! [ "$(command -v "$pkg")" ]; then
-      to_install_pkgs+=("$pkg")
+      brew install "$pkg"
     fi
   done
-
-  if [ ${#to_install_pkgs[@]} -gt 0 ]; then
-    brew install "${to_install_pkgs[@]}"
-  fi
 }
 
 reload() {
@@ -29,9 +24,11 @@ eval "$(mise activate bash)"
 
 # Install deno
 mise use -g deno
+
+# Run init script
 program=$(
   if [ "$DEV" = "true" ]; then
-    echo "./main.ts"
+    echo "./src/main.ts"
   else
     echo "https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/src/main.ts"
   fi

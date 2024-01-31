@@ -3,6 +3,14 @@ import { packages } from "./packages.ts"
 import { isWsl, reload } from "./utils.ts"
 import { fishConfigDir } from "./env.ts"
 
+const installBrewPackages = async () => {
+  await $`brew update`
+  for (const pkg of packages) {
+    await $`brew install ${pkg}`
+  }
+  await $`brew cleanup`
+}
+
 const initChezmoi = async () => {
   await $`chezmoi init https://github.com/r4ai/dotfiles.git`
   await $`chezmoi apply`
@@ -28,7 +36,7 @@ const initChezmoi = async () => {
   }
 
   // Set active shell to fish
-  await $`chsh -s (which fish)`
+  await $`chsh -s $(which fish)`
 
   // Reload shell to check if fish config is working
   await reload()
@@ -41,7 +49,7 @@ const initFisher = async () => {
 }
 
 const main = async () => {
-  await $`brew install ${packages.join(" ")}`
+  await installBrewPackages()
   await initChezmoi()
   await initFisher()
 }
