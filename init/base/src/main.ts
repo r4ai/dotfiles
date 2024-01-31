@@ -36,7 +36,8 @@ const initChezmoi = async () => {
   }
 
   // Set active shell to fish
-  await $`chsh -s $(which fish)`
+  const fishShellPath = await $`which fish`.text()
+  await $`chsh -s ${fishShellPath.trim()}`
 
   // Reload shell to check if fish config is working
   await reload()

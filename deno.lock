@@ -31,6 +31,7 @@
     "https://deno.land/std@0.213.0/io/buf_reader.ts": "ccbd43ace0a9eebbd5e1b4765724b79da79d1e28b90c2b08537b99192da4a1f7",
     "https://deno.land/std@0.213.0/io/buffer.ts": "79182995c8340ece2fa8763a8da86d282c507e854921d0a4c2ba7425c63609ef",
     "https://deno.land/std@0.213.0/io/read_all.ts": "876c1cb20adea15349c72afc86cecd3573335845ae778967aefb5e55fe5a8a4a",
+    "https://deno.land/std@0.213.0/io/types.ts": "748bbb3ac96abda03594ef5a0db15ce5450dcc6c0d841c8906f8b10ac8d32c96",
     "https://deno.land/std@0.213.0/io/write_all.ts": "24aac2312bb21096ae3ae0b102b22c26164d3249dff96dbac130958aa736f038",
     "https://deno.land/std@0.213.0/path/_common/assert_path.ts": "2ca275f36ac1788b2acb60fb2b79cb06027198bc2ba6fb7e163efaedde98c297",
     "https://deno.land/std@0.213.0/path/_common/basename.ts": "569744855bc8445f3a56087fd2aed56bdad39da971a8d92b138c9913aecc5fa2",
@@ -153,6 +154,11 @@
     "https://deno.land/x/dax@0.38.0/src/result.ts": "719a9b4bc6bafeec785106744381cd5f37927c973334fcba6a33b6418fb9e7be",
     "https://deno.land/x/dax@0.38.0/src/shell.ts": "9b59a63de62003a0575f9c3300b5fff83cd7e5487582eceaa5f071a684d75e0e",
     "https://deno.land/x/outdent@v0.8.0/src/index.ts": "6dc3df4108d5d6fedcdb974844d321037ca81eaaa16be6073235ff3268841a22",
-    "https://deno.land/x/which@0.3.0/mod.ts": "3e10d07953c14e4ddc809742a3447cef14202cdfe9be6678a1dfc8769c4487e6"
+    "https://deno.land/x/which@0.3.0/mod.ts": "3e10d07953c14e4ddc809742a3447cef14202cdfe9be6678a1dfc8769c4487e6",
+    "https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/src/dependencies.ts": "30c61a85396a934f0259c41cde408d97d2ac7c47a7d05069bf8ef44280d1c54f",
+    "https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/src/env.ts": "472e1f4451cdcc75d320609dc645c05761360bc46826d5b66b37ebf269675c32",
+    "https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/src/main.ts": "1c8aefebf9c89c20110653c9d6c535036b61bdce2105205032f10c6b7b9bd52b",
+    "https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/src/packages.ts": "fbf10e387101a254b5f4144c0d34849dcb58cd84b95cb7a5ea95eeb41c7ca8a0",
+    "https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/src/utils.ts": "a08375fcd5a25cd40ed28d0729e7399e1b29f44ff9ed89aa4f883718a9b82f32"
   }
 }

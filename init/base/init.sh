@@ -33,5 +33,5 @@ program=$(
     echo "https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/src/main.ts"
   fi
 )
-echo "program: $program"
+deno cache --reload "$program"
 deno run -A "$program"
