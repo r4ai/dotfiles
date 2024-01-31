@@ -33,5 +33,7 @@ program=$(
     echo "https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/src/main.ts"
   fi
 )
-deno cache --reload "$program"
-deno run -A "$program"
+deno run \
+  --allow-env --allow-read --allow-write --allow-run \
+  --no-lock --reload \
+  "$program"
