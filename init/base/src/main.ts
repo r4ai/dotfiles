@@ -2,10 +2,15 @@ import { $, path } from "./dependencies.ts"
 import { packages } from "./packages.ts"
 import { isWsl, reload } from "./utils.ts"
 import { fishConfigDir } from "./env.ts"
+import { which } from "./utils.ts"
+import { exists } from "./utils.ts"
 
 const installBrewPackages = async () => {
   await $`brew update`
   for (const pkg of packages) {
+    if (await exists(pkg)) {
+      continue
+    }
     await $`brew install ${pkg}`
   }
   await $`brew cleanup`
@@ -36,8 +41,7 @@ const initChezmoi = async () => {
   }
 
   // Set active shell to fish
-  const fishShellPath = await $`which fish`.text()
-  await $`chsh -s ${fishShellPath.trim()}`
+  await $`chsh -s ${await which("fish")}`
 
   // Reload shell to check if fish config is working
   await reload()
