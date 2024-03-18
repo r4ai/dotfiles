@@ -1,9 +1,9 @@
 # Typst Templates
 
-レポート作成用の、Typstのテンプレートです。
+レポート作成用の、Typst のテンプレートです。
 
 > [!IMPORTANT]
-> サンプルPDF：[sample/sample-report.pdf](./sample/sample-report.pdf)
+> サンプル PDF：[sample/sample-report.pdf](./sample/sample-report.pdf)
 
 ## 使い方
 
@@ -19,7 +19,7 @@
 
 #### 自動インストール
 
-このレポジトリをクローンして、このREADMEがあるディレクトリで以下のコマンドを実行してください。
+このレポジトリをクローンして、この README があるディレクトリで以下のコマンドを実行してください。
 
 ```sh
 deno run -A install.ts
@@ -85,7 +85,7 @@ rm $env:APPDATA\typst\packages\local\jsreport
 
 #### コードブロックについて
 
-Typstでは、コードブロックに対して行番号の表示やキャプションの挿入、相互参照などをデフォルトではサポートしていません。したがって、このテンプレートではこれら機能を`#code-info()`関数を通して独自に実装しています。
+Typst では、コードブロックに対して行番号の表示やキャプションの挿入、相互参照などをデフォルトではサポートしていません。したがって、このテンプレートではこれら機能を`#code-info()`関数を通して独自に実装しています。
 
 `code-info`関数の定義は次の通りです：
 
@@ -102,7 +102,7 @@ Typstでは、コードブロックに対して行番号の表示やキャプシ
 - `caption`: コードブロックのキャプションを指定します。デフォルトでは、キャプションは表示されません。
 - `label`: コードブロックにラベルを付けます。ラベルは、`#ref`関数を用いて参照することができます。
 - `show-line-numbers`: 行番号を表示するか否かを指定します。デフォルトでは、行番号は表示されません。
-- `start-line`: 行番号の開始番号を指定します。デフォルトでは、行番号は1から始まります。
+- `start-line`: 行番号の開始番号を指定します。デフォルトでは、行番号は 1 から始まります。
 - `highlight-line`: ハイライトする行番号のリストを指定します。デフォルトでは、ハイライトする行はありません。
 
 `code-info`関数によって設定された情報は、その`code-info`関数が呼び出された次のコードブロックのみに適用されます。言い換えると、コードブロックの度に、`code-info`関数によって設定された情報はリセットされます。したがって、コードブロックに対して行番号の表示やキャプションの挿入、相互参照などを行う場合は、そのコードブロックの直前で`code-info`関数を呼び出す必要があります。
@@ -178,11 +178,11 @@ fn main() {
   - default: `datetime.today()`
 - `title-type`: タイトルの種類を指定します。
   - type: `"fullpage" | "inpage" | "none"`
-    - `"fullpage"`: 1ページ目にタイトルページを挿入します。
-    - `"inpage"`: 1ページ目の上部にタイトルを挿入します。
+    - `"fullpage"`: 1 ページ目にタイトルページを挿入します。
+    - `"inpage"`: 1 ページ目の上部にタイトルを挿入します。
     - `"none"`: タイトルを挿入しません。
   - default: `"fullpage"`
-- `title-component`: タイトルページのコンポーネントを指定します。コンポーネントは、以下のtypeを満たす関数です。
+- `title-component`: タイトルページのコンポーネントを指定します。コンポーネントは、以下の type を満たす関数です。
   - type: `(title: [タイトル], author: [著者], date: datetime.today(), font: "Noto Serif JP", gap: (32pt, 32pt)) => {}`
   - default: `report-title`
 
@@ -216,14 +216,14 @@ fn main() {
 #let callout(type, body) = ...
 ```
 
-- type: Calloutの種類を指定する
+- type: Callout の種類を指定する
   - type: "note" | "warning" | "quote" | "rocket" | "todo" | string
-- body: Calloutの本文を指定する
+- body: Callout の本文を指定する
   - type: `content`
 
 ##### Callout の描画
 
-例えば、次のようにしてCalloutを挿入することができます：
+例えば、次のようにして Callout を挿入することができます：
 
 ```typ
 #import "@local/jsreport:0.1.0": callout
@@ -254,6 +254,22 @@ fn main() {
 ```
 
 ![Calloutの出力結果](.github/assets/callout.png)
+
+タイトル付きの Callout を挿入することもできます：
+
+```typ
+#import "@local/jsreport:0.1.0": callout
+
+#callout("note", title: "コラム")[
+  C言語は、1972年にAT&Tベル研究所で開発されたプログラミング言語である。
+]
+
+#callout("warning", title: [`Deno`の_*注意点*_])[
+  Node.jsと完璧な互換性を持つわけではない。
+]
+```
+
+![タイトル付きCalloutの出力結果](.github/assets/callout-with-title.png)
 
 ##### 新しい独自 Callout の作成
 

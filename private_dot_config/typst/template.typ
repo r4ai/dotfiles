@@ -313,13 +313,19 @@
 }
 
 // @args type: string e.g. "note"
+// @args title: content e.g. "Note"
 // @args body: content
-#let callout(type, body) = locate(loc => {
+#let callout(type, body, title: none) = locate(loc => {
   let callout-types = callouts.at(loc)
   let callout-type = if callout-types.keys().contains(type) {
     callout-types.at(type)
   } else {
     callout-types.at("note")
+  }
+  let callout-title = if title == none {
+    callout-type.label
+  } else {
+    title
   }
 
   set image(
@@ -339,7 +345,7 @@
         spacing: 0.5em,
         callout-type.icon,
         text(1.05em)[
-          #callout-type.label
+          #callout-title
         ]
       )
     ] \

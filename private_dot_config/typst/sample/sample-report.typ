@@ -1,4 +1,4 @@
-#import "@local/jsreport:0.1.0": report, code-info, callout, create-callout, callouts
+#import "@local/jsreport:0.1.1": report, code-info, callout, create-callout, callouts
 #show: report.with(
   title: [
     #text(font: "Noto Emoji")[#emoji.crab] \
@@ -373,6 +373,16 @@ $ V[X] &= E[X^2] - E[X^2] \
 
 #callout("unknown")[
   与えられた種類のCalloutが存在しない場合、noteとして扱われます。
+]
+
+タイトル付きCallout：
+
+#callout("note", title: "コラム")[
+  C言語は、1972年にAT&Tベル研究所で開発されたプログラミング言語である。
+]
+
+#callout("warning", title: [`Deno`の_*注意点*_])[
+  Node.jsと完璧な互換性を持つわけではない。
 ]
 
 === カスタム Callout
