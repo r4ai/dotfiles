@@ -13,4 +13,5 @@ return {
     "sainnhe/everforest",
     lazy = false,
   },
+  "sigmasd/deno-nvim",
 }

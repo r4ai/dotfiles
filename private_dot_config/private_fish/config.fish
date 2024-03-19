@@ -156,3 +156,9 @@ end
 if type -q mise
   abbr asdf mise
 end
+
+#* bun
+if not type -q bunx
+  alias bunx "bun x"
+end
+
