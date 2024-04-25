@@ -106,6 +106,9 @@ end
 
 #* opam (ocaml package manager)
 if type -q opam
+    # see https://github.com/ocaml-community/utop/issues/112#issuecomment-1842108174
+    set -x OCAMLPATH $HOME/.opam/default/lib
+
     eval (opam env)
 end
 
