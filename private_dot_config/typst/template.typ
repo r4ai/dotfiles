@@ -188,7 +188,8 @@
       let showHighlight = type(highlight-line) == int and highlight-line == it.number
       let line = [
         #if cur-code-info.show-line-numbers {
-          it.number + cur-code-info.start-line - 1
+          let line-number = it.number + cur-code-info.start-line - 1
+          box(width: measure([#it.count]).width)[#line-number]
         }
         #h(1em)
         #it
