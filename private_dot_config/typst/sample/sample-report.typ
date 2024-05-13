@@ -417,6 +417,32 @@ $ V[X] &= E[X^2] - E[X^2] \
   Sparking!!
 ]
 
+== コードブロック
+
+#code-info(
+  caption: "fizzbuzz.rs",
+  show-line-numbers: true,
+  start-line: 1,
+  highlighted-lines: (3, 5, 7),
+  added-lines: (4, 6),
+  deleted-lines: (8, 10),
+)
+```rs
+fn main() {
+    for i in 1..=100 {
+        if i % 15 == 0 {
+            println!("FizzBuzz");
+        } else if i % 3 == 0 {
+            println!("Fizz");
+        } else if i % 5 == 0 {
+            println!("Buzz");
+        } else {
+            println!("{}", i);
+        }
+    }
+}
+```
+
 == 参考文献テスト
 
 ハリーポッターと不死鳥の騎士団 @harry は、J・K・ローリングが2003年に発表した、小説『ハリーポッター』シリーズの第5巻である。

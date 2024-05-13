@@ -17,7 +17,9 @@
   label: none,
   show-line-numbers: false,
   start-line: 1,
-  highlight-line: ()
+  highlighted-lines: (),
+  added-lines: (),
+  deleted-lines: (),
 )
 
 #let code-info-state = state("code-info", default-code-info)
@@ -27,14 +29,18 @@
   label: default-code-info.label,
   show-line-numbers: default-code-info.show-line-numbers,
   start-line: default-code-info.start-line,
-  highlight-line: default-code-info.highlight-line,
+  highlighted-lines: default-code-info.highlighted-lines,
+  added-lines: default-code-info.added-lines,
+  deleted-lines: default-code-info.deleted-lines,
 ) = {
   code-info-state.update((
     caption: caption,
     label: label,
     show-line-numbers: show-line-numbers,
     start-line: start-line,
-    highlight-line: highlight-line,
+    highlighted-lines: highlighted-lines,
+    added-lines: added-lines,
+    deleted-lines: deleted-lines,
   ))
 }
 
@@ -172,7 +178,9 @@
   // Configure Code
   show raw.where(block: true): it => locate(loc => {
     let cur-code-info = code-info-state.at(loc)
-    let highlight-line = cur-code-info.highlight-line
+    let highlighted-lines = cur-code-info.highlighted-lines
+    let added-lines = cur-code-info.added-lines
+    let deleted-lines = cur-code-info.deleted-lines
     let codeblock-width = 95%
 
     set text(font: body-font)
@@ -185,20 +193,26 @@
     )
 
     show raw.line: it => {
-      let showHighlight = type(highlight-line) == int and highlight-line == it.number
+      let showHighlighted = highlighted-lines.contains(it.number)
+      let showAdded = added-lines.contains(it.number)
+      let showDeleted = deleted-lines.contains(it.number)
       let line = [
         #if cur-code-info.show-line-numbers {
           let line-number = it.number + cur-code-info.start-line - 1
           box(width: measure([#it.count]).width)[#line-number]
         }
         #h(1em)
-        #it
+        #if showHighlighted {
+          highlight(fill: rgb("#cfecfc"), it)
+        } else if showAdded {
+          highlight(fill: rgb("#d6f2c7"), it)
+        } else if showDeleted {
+          highlight(fill: rgb("#ffd9d9"), it)
+        } else {
+          it
+        }
       ]
-      if showHighlight {
-        highlight(fill: aqua)[#line]
-      } else {
-        line
-      }
+      line
     }
 
     let code-block = [
