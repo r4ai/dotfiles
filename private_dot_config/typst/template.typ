@@ -178,6 +178,8 @@
   // Configure Code
   show raw.where(block: true): it => locate(loc => {
     let cur-code-info = code-info-state.at(loc)
+    let start-line = cur-code-info.start-line
+    let show-line-numbers = cur-code-info.show-line-numbers
     let highlighted-lines = cur-code-info.highlighted-lines
     let added-lines = cur-code-info.added-lines
     let deleted-lines = cur-code-info.deleted-lines
@@ -192,31 +194,52 @@
         else { auto },
     )
 
-    show raw.line: it => {
-      let showHighlighted = highlighted-lines.contains(it.number)
-      let showAdded = added-lines.contains(it.number)
-      let showDeleted = deleted-lines.contains(it.number)
-      let line-number-color = if showAdded { green }
-        else if showDeleted { red }
-        else { black }
-      let line-bg-color = if showHighlighted { rgb("#cfecfc") }
-        else if showAdded { rgb("#d6f2c7") }
-        else if showDeleted { rgb("#ffd9d9") }
-        else { rgb(0,0,0,0) }
-      let line = [
-        #if cur-code-info.show-line-numbers {
-          let line-number = it.number + cur-code-info.start-line - 1
-          box(width: measure([#it.count]).width)[#text(line-number-color)[#line-number]]
-        }
-        #h(1em)
-        #highlight(
-          fill: line-bg-color,
-          it,
-        )
-      ]
-      line
-    }
+    let code-block-content = grid(
+      columns: if show-line-numbers { (auto, 1fr) } else { (1fr) },
+      inset: 0.3em,
+      align: left + top,
+      stroke: none,
+      ..it
+        .lines
+        .map((line) => {
+          let line-number = line.number + start-line - 1
+          let show-highlighted = highlighted-lines.contains(line-number)
+          let show-added = added-lines.contains(line-number)
+          let show-deleted = deleted-lines.contains(line-number)
+          let line-number-color = if show-added { rgb("#228b22") }
+            else if show-deleted { rgb("b22222") }
+            else { gray }
+          let line-bg-color = if show-highlighted { rgb("#cfecfc") }
+            else if show-added { rgb("#d6f2c7") }
+            else if show-deleted { rgb("#ffd9d9") }
+            else { rgb(0,0,0,0) }
 
+          let line-number-content = grid.cell(
+              inset: (right: 1.2em),
+              text(
+                fill: line-number-color,
+                weight: if show-added or show-deleted { "bold" } else { "regular" },
+                str(line-number)
+              )
+            )
+          if show-line-numbers {
+            (
+              line-number-content,
+              grid.cell(
+                fill: line-bg-color,
+                line,
+              )
+            )
+          } else {
+            grid.cell(
+              inset: (x: 1.2em),
+              fill: line-bg-color,
+              line,
+            )
+          }
+        })
+        .flatten()
+    )
     let code-block = [
       #h(2em)
       #figure(
@@ -233,26 +256,17 @@
           if cur-code-info.label == none { none }
           else { "1" },
         gap: 1em,
-        [
-          #set align(left)
-          #set par(leading: 0.8em)
-          #set text(font: mono-font, size: 9pt)
-          #set block(spacing: 1em, above: 1em, below: 1em)
-          #line(length: codeblock-width)
-          #block(
-            inset: (
-              left: 0.5em,
-              right: 0.5em,
-            ),
-            breakable: true,
-          )[
-            #it
-          ]
-          #line(length: codeblock-width)
-        ],
-      ) #if cur-code-info.label != none {
-        label(cur-code-info.label)
-      }
+        {
+          set par(justify: false)
+          set text(font: mono-font, size: 9pt)
+          set block(spacing: 1em, above: 1em, below: 1em)
+          set line(length: 100%, stroke: 0.5pt)
+
+          line()
+          code-block-content
+          line()
+        },
+      ) #if cur-code-info.label != none { label(cur-code-info.label) }
       #h(2em)
     ]
 
