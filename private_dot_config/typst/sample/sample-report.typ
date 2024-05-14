@@ -1,4 +1,4 @@
-#import "@local/jsreport:0.1.1": report, code-info, callout, create-callout, callouts
+#import "@local/jsreport:0.2.0": report, code-info, callout, create-callout, callouts
 #show: report.with(
   title: [
     #text(font: "Noto Emoji")[#emoji.crab] \
@@ -398,7 +398,7 @@ $ V[X] &= E[X^2] - E[X^2] \
 独自のCalloutも定義できます：
 
 ```typ
-#import "@local/jsreport:0.1.0": callout, create-callout
+#import "@local/jsreport:0.2.0": callout, create-callout
 
 #create-callout(
   "spark",

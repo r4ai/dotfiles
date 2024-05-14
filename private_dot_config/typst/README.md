@@ -65,7 +65,7 @@ rm $env:APPDATA\typst\packages\local\jsreport
 以下のコードを、レポートのファイルの先頭に追加してください。
 
 ```typ
-#import "@local/jsreport:0.1.0": report, code-info
+#import "@local/jsreport:0.2.0": report, code-info
 #show: report.with(
   title: [
     #text(font: "Noto Emoji")[#emoji.crab] \
@@ -114,7 +114,7 @@ Typst では、コードブロックに対して行番号の表示やキャプ�
 例えば、次のようにしてコードブロックを挿入することができます：
 
 ````typ
-#import "@local/jsreport:0.1.0": code-info
+#import "@local/jsreport:0.2.0": code-info
 
 プログラムを @code:fizzbuzz に示す。
 
@@ -159,7 +159,7 @@ fn main() {
 例えば、次のようにしてフォントを変更することができます：
 
 ```typ
-#import "@local/jsreport:0.1.0": report
+#import "@local/jsreport:0.2.0": report
 
 #show: report.with(
   heading-font: "Noto Sans JP",
@@ -193,7 +193,7 @@ fn main() {
 例えば、次のようにしてタイトルページを変更することができます：
 
 ```typ
-#import "@local/jsreport:0.1.0": report
+#import "@local/jsreport:0.2.0": report
 
 #show: report.with(
   title: [
@@ -230,7 +230,7 @@ fn main() {
 例えば、次のようにして Callout を挿入することができます：
 
 ```typ
-#import "@local/jsreport:0.1.0": callout
+#import "@local/jsreport:0.2.0": callout
 
 #callout("note")[
   これはノートです。
@@ -262,7 +262,7 @@ fn main() {
 タイトル付きの Callout を挿入することもできます：
 
 ```typ
-#import "@local/jsreport:0.1.0": callout
+#import "@local/jsreport:0.2.0": callout
 
 #callout("note", title: "コラム")[
   C言語は、1972年にAT&Tベル研究所で開発されたプログラミング言語である。
@@ -278,7 +278,7 @@ fn main() {
 ##### 新しい独自 Callout の作成
 
 ```typ
-#import "@local/jsreport:0.1.0": callout, create-callout
+#import "@local/jsreport:0.2.0": callout, create-callout
 
 #create-callout(
   "spark",

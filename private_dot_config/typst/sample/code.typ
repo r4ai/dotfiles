@@ -1,4 +1,4 @@
-#import "@local/jsreport:0.1.1": report, code-info
+#import "@local/jsreport:0.2.0": report, code-info
 #show: report.with(
   title: [
     コードブロックのサンプル
@@ -25,7 +25,7 @@ fn main() {
   show-line-numbers: true,
 )
 ```typ
-#import "@local/jsreport:0.1.0": callout, create-callout
+#import "@local/jsreport:0.2.0": callout, create-callout
 
 #create-callout(
   "spark",
