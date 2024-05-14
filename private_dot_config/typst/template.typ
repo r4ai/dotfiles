@@ -196,21 +196,23 @@
       let showHighlighted = highlighted-lines.contains(it.number)
       let showAdded = added-lines.contains(it.number)
       let showDeleted = deleted-lines.contains(it.number)
+      let line-number-color = if showAdded { green }
+        else if showDeleted { red }
+        else { black }
+      let line-bg-color = if showHighlighted { rgb("#cfecfc") }
+        else if showAdded { rgb("#d6f2c7") }
+        else if showDeleted { rgb("#ffd9d9") }
+        else { rgb(0,0,0,0) }
       let line = [
         #if cur-code-info.show-line-numbers {
           let line-number = it.number + cur-code-info.start-line - 1
-          box(width: measure([#it.count]).width)[#line-number]
+          box(width: measure([#it.count]).width)[#text(line-number-color)[#line-number]]
         }
         #h(1em)
-        #if showHighlighted {
-          highlight(fill: rgb("#cfecfc"), it)
-        } else if showAdded {
-          highlight(fill: rgb("#d6f2c7"), it)
-        } else if showDeleted {
-          highlight(fill: rgb("#ffd9d9"), it)
-        } else {
-          it
-        }
+        #highlight(
+          fill: line-bg-color,
+          it,
+        )
       ]
       line
     }
@@ -233,7 +235,7 @@
         gap: 1em,
         [
           #set align(left)
-          #set par(leading: 0.85em)
+          #set par(leading: 0.8em)
           #set text(font: mono-font, size: 9pt)
           #set block(spacing: 1em, above: 1em, below: 1em)
           #line(length: codeblock-width)
