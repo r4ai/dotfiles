@@ -171,3 +171,9 @@ end
 if type -q zoxide
     zoxide init fish | source
 end
+
+#* atcoder
+if type -q atcoder
+    source (atcoder completions fish | psub)
+end
+
