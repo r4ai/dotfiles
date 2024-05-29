@@ -1,3 +1,6 @@
+### OS specific ignores ####
+.DS_Store
+
 ### Karabiner-Elements ###
 .lsp
 .lsp_cache
