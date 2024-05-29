@@ -1,3 +1,5 @@
+theme = "material_darker"
+
 [window]
 foreground-opacity = 1.0
 background-opacity = 0.7
