@@ -3,3 +3,6 @@ foreground-opacity = 1.0
 background-opacity = 0.7
 blur = true
 
+[fonts]
+family = "UDEV Gothic NFLG"
+
