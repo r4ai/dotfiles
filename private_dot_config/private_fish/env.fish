@@ -115,6 +115,7 @@ end
 #* pipx (python cli manager)
 fish_add_path "$HOME/.local/bin"
 if type -q pipx
+   and type -q register-python-argcomplete
     register-python-argcomplete --shell fish pipx >~/.config/fish/completions/pipx.fish
 end
 
