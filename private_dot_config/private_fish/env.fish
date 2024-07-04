@@ -178,3 +178,7 @@ if type -q atcoder
     source (atcoder completions fish | psub)
 end
 
+#* tver
+if type -q tver
+    source (tver completions fish | psub)
+end
