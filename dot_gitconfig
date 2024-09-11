@@ -5,7 +5,7 @@
 	helper = !gh auth git-credential
 
 [user]
-	email = mj82xx@gmail.com
+	email = 96561881+r4ai@users.noreply.github.com
 	name = rai
 
 [core]
