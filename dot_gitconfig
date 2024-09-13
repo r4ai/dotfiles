@@ -10,7 +10,11 @@
 
 [core]
 	quotepath = false
+{{ if eq .chezmoi.os "windows" }}
+  editor = code --wait
+{{ else }}
 	editor = nvim
+{{ end }}
 	pager = delta
   autocrlf = input
 
