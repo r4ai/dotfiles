@@ -115,7 +115,7 @@ end
 #* pipx (python cli manager)
 fish_add_path "$HOME/.local/bin"
 if type -q pipx
-   and type -q register-python-argcomplete
+    and type -q register-python-argcomplete
     register-python-argcomplete --shell fish pipx >~/.config/fish/completions/pipx.fish
 end
 
@@ -181,4 +181,9 @@ end
 #* tver
 if type -q tver
     source (tver completions fish | psub)
+end
+
+#* uv
+if type -q uv
+    uvx --generate-shell-completion fish | source
 end
