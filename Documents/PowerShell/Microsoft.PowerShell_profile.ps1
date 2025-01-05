@@ -5,8 +5,12 @@ Invoke-Expression (&starship init powershell)
 
 #! ---IMPORT MODULES---
 Import-Module posh-git # gitのタブ補完
-Invoke-Expression -Command $(gh completion -s powershell | Out-String)
-Invoke-Expression -Command $(volta completions powershell | Out-String)
+if (Get-Command gh -ErrorAction SilentlyContinue) {
+  Invoke-Expression -Command $(gh completion -s powershell | Out-String)
+}
+if (Get-Command volta -ErrorAction SilentlyContinue) {
+  Invoke-Expression -Command $(volta completions powershell | Out-String)
+}
 Import-Module Terminal-Icons # ls時にアイコンを表示する
 
 #! ---ALIAS---
