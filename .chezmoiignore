@@ -1,7 +1,12 @@
 .gitignore
 .vscode
+deno.json
+deno.lock
+README.md
+.editorconfig
+init
 
 {{ if ne .chezmoi.os "windows" }}
-OneDrive
+Documents
 keyhac
 {{ end }}
