@@ -59,6 +59,7 @@ if type -q git
     abbr ga 'git add'
     abbr gaa 'git add .'
     abbr gcm 'git commit -m'
+    abbr rd 'cd (git rev-parse --show-toplevel)'
 end
 
 #* Silicon, Carbon (Code to Image)
@@ -161,4 +162,3 @@ end
 if not type -q bunx
   alias bunx "bun x"
 end
-
