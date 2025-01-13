@@ -22,4 +22,6 @@ export const packages: string[] = [
   "monolith",
   "starship",
   "neovim",
+  "fish",
+  "chezmoi",
 ]
