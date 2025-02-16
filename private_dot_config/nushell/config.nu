@@ -16,3 +16,12 @@
 #
 # You can remove these comments if you want or leave
 # them for future reference.
+
+source init.nu
+source completions.nu
+source aliases.nu
+
+source commands/open.nu
+
+# Nushell Settings
+$env.config.buffer_editor = "code"
