@@ -9,4 +9,5 @@ init
 {{ if ne .chezmoi.os "windows" }}
 Documents
 keyhac
+AppData
 {{ end }}
