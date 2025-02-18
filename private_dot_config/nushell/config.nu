@@ -18,8 +18,9 @@
 # them for future reference.
 
 source init.nu
-source completions.nu
 source aliases.nu
+source completions.nu
+source ($nu.default-config-dir | path join completions.gen.nu)
 
 source commands/open.nu
 
