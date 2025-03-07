@@ -40,9 +40,20 @@ const initChezmoi = async () => {
     )
   }
 
+  // Register fish in /etc/shells
+  const currentShellsPath = "/etc/shells"
+  const currentShells = (await Deno.readTextFile(currentShellsPath)).split("\n")
+  const fishShell = await which("fish")
+  if (!currentShells.includes(fishShell)) {
+    currentShells.push(fishShell)
+    await Deno.writeTextFile(
+      currentShellsPath,
+      currentShells.join("\n"),
+    )
+  }
+
   // Set active shell to fish
   const currentShell = Deno.env.get("SHELL")
-  const fishShell = await which("fish")
   if (currentShell !== fishShell) {
     await $`chsh -s ${fishShell}`
   }

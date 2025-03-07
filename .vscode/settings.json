@@ -3,7 +3,10 @@
   "deno.enable": true,
   "deno.lint": true,
   "deno.unstable": true,
-  "[typescript][javascript]": {
+  "[javascript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[typescript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
   },
 }
