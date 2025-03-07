@@ -51,6 +51,7 @@ const initChezmoi = async () => {
 const initFisher = async () => {
   await $`fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"`
   await $`fish -c "fisher install r4ai/my_fish_functions"`
+  await $`fish -c "fisher install decors/fish-ghq"`
 }
 
 const main = async () => {
