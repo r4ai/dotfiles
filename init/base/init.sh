@@ -37,6 +37,6 @@ program=$(
   fi
 )
 $(mise which deno) run \
-  --allow-env --allow-read --allow-write --allow-run \
+  --allow-env --allow-read --allow-write --allow-run --allow-sys \
   --no-lock --reload \
   "$program"
