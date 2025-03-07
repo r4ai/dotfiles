@@ -21,7 +21,7 @@ const initChezmoi = async () => {
   await $`chezmoi apply`
 
   // Create `~/.config/fish/vars.fish`
-  const varsFish = path.join(fishConfigDir, "vars.fish")
+  const varsFish = path.join(fishConfigDir(), "vars.fish")
   Deno.create(varsFish)
 
   // Set `WINDOWS_HOME` variable
