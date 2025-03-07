@@ -22,6 +22,9 @@ fi
 brew_install mise
 eval "$(mise activate bash)"
 
+# Install chezmoi
+mise use -g chezmoi
+
 # Install deno
 mise use -g deno
 
