@@ -4,7 +4,6 @@
 export const packages: string[] = [
   "git",
   "gh",
-  "chezmoi",
   "zoxide",
   "bat",
   "eza",
