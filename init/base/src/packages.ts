@@ -23,4 +23,5 @@ export const packages: string[] = [
   "neovim",
   "fish",
   "chezmoi",
+  "ghq",
 ]
