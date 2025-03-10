@@ -188,3 +188,8 @@ if type -q uv
     uv generate-shell-completion fish | source
     uvx --generate-shell-completion fish | source
 end
+
+#* 1password
+if type -q op
+    set --export SSH_AUTH_SOCK "~/.1password/agent.sock"
+end
