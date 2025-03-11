@@ -196,5 +196,5 @@ end
 
 #* task
 if type -q task
-    task --completion fish
+    task --completion fish | source
 end
