@@ -193,3 +193,8 @@ end
 if type -q op
     set --export SSH_AUTH_SOCK "~/.1password/agent.sock"
 end
+
+#* task
+if type -q task
+    task --completion fish
+end
