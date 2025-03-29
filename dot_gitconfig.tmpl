@@ -10,11 +10,12 @@
 
 [core]
 	quotepath = false
-{{ if eq .chezmoi.os "windows" }}
+{{- if eq .chezmoi.os "windows" -}}
   editor = code --wait
-{{ else }}
+  sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+{{- else -}}
 	editor = nvim
-{{ end }}
+{{- end -}}
 	pager = delta
   autocrlf = input
 
