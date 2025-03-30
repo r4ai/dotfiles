@@ -45,7 +45,7 @@ const initChezmoi = async () => {
   const currentShells = (await Deno.readTextFile(currentShellsPath)).split("\n")
   const fishShell = await which("fish")
   if (!currentShells.includes(fishShell)) {
-    $.raw`echo "${fishShell}" | sudo tee -a "${currentShellsPath}"`
+    await $.raw`echo "${fishShell}" | sudo tee -a "${currentShellsPath}"`
       .printCommand()
   }
 
