@@ -13,6 +13,9 @@ if (Get-Command volta -ErrorAction SilentlyContinue) {
 }
 Import-Module Terminal-Icons # ls時にアイコンを表示する
 
+#! ---MISE---
+mise activate pwsh | Out-String | Invoke-Expression
+
 #! ---ALIAS---
 Set-Alias -Name 'which' -Value 'Get-Command'
 Set-Alias -Name 'll' -Value 'ls'
