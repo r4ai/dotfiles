@@ -1,0 +1,17 @@
+[tools]
+bun = "latest"
+chezmoi = "latest"
+cmake = "latest"
+deno = "latest"
+ninja = "latest"
+node = "latest"
+"npm:@biomejs/biome" = "latest"
+rust = "latest"
+typst = "latest"
+uv = "latest"
+
+[settings]
+experimental = true
+
+[settings.pipx]
+uvx = true
