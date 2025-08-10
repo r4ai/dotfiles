@@ -151,8 +151,11 @@ end
 
 #* mise
 if type -q mise
-    mise activate fish | source
-    fish_add_path "~/.local/share/mise/shims"
+    if status is-interactive
+        mise activate fish | source
+    else
+        mise activate fish --shims | source
+    end
 end
 
 #* cargo
