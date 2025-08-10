@@ -17,25 +17,15 @@ function fish_remove_path --description 'Remove one or more directories from PAT
         return 2
     end
 
-    # Normalize targets
-    set -l targets (path normalize -- $argv)
-
-    # Filter helper
-    function __fish_rmpath_filter --no-scope-shadowing
-        set -l out
-        for p in $argv
-            if not contains -- (path normalize -- $p) $targets
-                set -a out $p
-            end
+    for arg in $argv
+        if set -l index (contains -i "$arg" $PATH)
+            set -e PATH[$index]
+            echo "Removed "$arg" from the \$PATH"
         end
-        echo $out
-    end
 
-    # Update PATH (exported)
-    set -gx PATH (__fish_rmpath_filter $PATH)
-
-    # Update fish_user_paths (universal, persists)
-    if set -q fish_user_paths
-        set -U fish_user_paths (__fish_rmpath_filter $fish_user_paths)
+        if set -l index (contains -i "$arg" $fish_user_paths)
+            set -e fish_user_paths[$index]
+            echo "Removed "$arg" from the \$fish_user_paths"
+        end
     end
 end
