@@ -44,3 +44,6 @@ function reload() {
 function gs() {
   git status
 }
+function kill-port { param([int]$Port)
+  Stop-Process -Id ((Get-NetTCPConnection -LocalPort $Port -EA 0).OwningProcess + (Get-NetUDPEndpoint -LocalPort $Port -EA 0).OwningProcess | Sort-Object -Unique) -Force -EA 0
+}
