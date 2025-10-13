@@ -62,6 +62,7 @@ const packageDir = path.join(
   packageMeta.name,
   packageMeta.version
 );
+Deno.removeSync(packageDir, { recursive: true });
 Deno.mkdirSync(packageDir, { recursive: true });
 
 // Copy the package files
