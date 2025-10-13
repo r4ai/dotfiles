@@ -12,38 +12,6 @@
   }
 }
 
-#let default-code-info = (
-  caption: none,
-  label: none,
-  show-line-numbers: false,
-  start-line: 1,
-  highlighted-lines: (),
-  added-lines: (),
-  deleted-lines: (),
-)
-
-#let code-info-state = state("code-info", default-code-info)
-
-#let code-info(
-  caption: default-code-info.caption,
-  label: default-code-info.label,
-  show-line-numbers: default-code-info.show-line-numbers,
-  start-line: default-code-info.start-line,
-  highlighted-lines: default-code-info.highlighted-lines,
-  added-lines: default-code-info.added-lines,
-  deleted-lines: default-code-info.deleted-lines,
-) = {
-  code-info-state.update((
-    caption: caption,
-    label: label,
-    show-line-numbers: show-line-numbers,
-    start-line: start-line,
-    highlighted-lines: highlighted-lines,
-    added-lines: added-lines,
-    deleted-lines: deleted-lines,
-  ))
-}
-
 // Display a title, author, and date.
 #let report-title(
   title: [タイトル],
@@ -108,7 +76,7 @@
   set par(leading: 1em, justify: true)
   set text(font: body-font, lang: "ja", region: "jp", size: 10pt)
   set heading(numbering: "1.1.1.1.1.  ")
-  show par: set block(spacing: 2em, above: 2em)
+  set block(spacing: 2em, above: 2em)
   show heading: it => [
     #set block(above: 2.5em, below: 1em)
     #set text(font: heading-font, weight: "semibold")
