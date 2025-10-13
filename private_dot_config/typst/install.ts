@@ -71,7 +71,10 @@ const excludeFiles =
   packageMeta.exclude?.map((file) => Deno.realPathSync(file)) ?? [];
 for (const packageFile of packageFiles) {
   const fromPath = packageFile.path;
-  const toPath = path.join(packageDir, packageFile.name);
+  const toPath = path.join(
+    packageDir,
+    path.relative(import.meta.dirname!, fromPath),
+  );
   if (excludeFiles.includes(fromPath)) continue;
   Deno.mkdirSync(path.dirname(toPath), { recursive: true });
   Deno.copyFileSync(fromPath, toPath);
