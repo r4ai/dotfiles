@@ -1,6 +1,7 @@
 import * as path from "https://deno.land/std@0.208.0/path/mod.ts";
 import * as TOML from "https://deno.land/std@0.109.0/encoding/toml.ts";
 import { walkSync } from "https://deno.land/std@0.208.0/fs/mod.ts";
+import { fs } from "https://deno.land/x/dax@0.38.0/src/deps.ts"
 
 const TYPST_TOML_PATH = "typst.toml";
 const NAMESPACE = "local";
@@ -62,7 +63,7 @@ const packageDir = path.join(
   packageMeta.name,
   packageMeta.version
 );
-Deno.removeSync(packageDir, { recursive: true });
+if (fs.existsSync(packageDir)) Deno.removeSync(packageDir, { recursive: true });
 Deno.mkdirSync(packageDir, { recursive: true });
 
 // Copy the package files
