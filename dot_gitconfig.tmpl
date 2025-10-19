@@ -22,7 +22,9 @@
   defaultBranch = main
 
 [interactive]
+{{- if ne .chezmoi.os "windows" }}
   diffFilter = delta --color-only --features=interactive
+{{- end }}
 
 [delta]
   features = decorations
