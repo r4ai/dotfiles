@@ -29,7 +29,7 @@ function cat() {
 }
 function touch($file) {
   If (Test-Path $file) {
-      (Get-Item $file).LastWriteTime = Get-Date
+    (Get-Item $file).LastWriteTime = Get-Date
   }
   Else {
     Out-File -encoding Default $file
@@ -44,6 +44,24 @@ function reload() {
 function gs() {
   git status
 }
-function kill-port { param([int]$Port)
+function kill-port {
+  param([int]$Port)
   Stop-Process -Id ((Get-NetTCPConnection -LocalPort $Port -EA 0).OwningProcess + (Get-NetUDPEndpoint -LocalPort $Port -EA 0).OwningProcess | Sort-Object -Unique) -Force -EA 0
+}
+function ghq-fzf {
+  $repo = $(ghq list | fzf)
+  Set-Location ( Join-Path $(ghq root) $repo)
+}
+function history-fzf {
+  Invoke-Expression ((Get-Content $(Get-PSReadLineOption).HistorySavePath) | fzf)
+}
+
+#! ---Key Bindings---
+Set-PSReadLineKeyHandler -Chord Ctrl+g -ScriptBlock {
+  ghq-fzf
+  [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+Set-PSReadLineKeyHandler -Chord Ctrl+r -ScriptBlock {
+  [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+  history-fzf
 }
