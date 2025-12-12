@@ -1,13 +1,17 @@
 // Convert a content to a string.
 // @see https://github.com/typst/typst/issues/2196
-#let to-string(content) = {
-  if content.has("text") {
-    content.text
-  } else if content.has("children") {
-    content.children.map(to-string).join("")
-  } else if content.has("body") {
-    to-string(content.body)
-  } else if content == [ ] {
+#let to-string(it) = {
+  if type(it) == str {
+    it
+  } else if type(it) != content {
+    str(it)
+  } else if it.has("text") {
+    it.text
+  } else if it.has("children") {
+    it.children.map(to-string).join()
+  } else if it.has("body") {
+    to-string(it.body)
+  } else if it == [ ] {
     " "
   }
 }
@@ -54,9 +58,11 @@
   body,
 ) = {
   // Configure the pdf document properties.
+  let title_str = to-string(title)
+  let author_str = to-string(author)
   set document(
-    title: to-string(title),
-    author: to-string(author),
+    title: if title_str == none { "" } else { title_str },
+    author: if author_str == none { "" } else { author_str },
     date: date,
   )
 
