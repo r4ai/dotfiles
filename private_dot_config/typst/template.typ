@@ -22,7 +22,7 @@
 ) = {
   let leading = 0.8em
   align(center)[
-    #heading(level: 1, numbering: none)[
+    #heading(level: 1, numbering: none, outlined: false)[
       #set text(font: font, size: 16pt, weight: "regular")
       #set par(leading: leading)
       #title
