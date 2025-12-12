@@ -1,6 +1,6 @@
 [package]
 name = "jsreport"
-version = "0.3.0"
+version = "0.4.0"
 entrypoint = "template.typ"
 authors = ["rai"]
 license = "MIT"
