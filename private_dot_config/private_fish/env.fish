@@ -201,3 +201,8 @@ end
 if type -q task
     task --completion fish | source
 end
+
+#* lake4
+if type -q lean
+    source $HOME/.elan/env
+end
