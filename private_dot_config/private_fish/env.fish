@@ -203,6 +203,6 @@ if type -q task
 end
 
 #* lake4
-if type -q lean
+if test -e "$HOME/.elan/env"
     source $HOME/.elan/env
 end
