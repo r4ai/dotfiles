@@ -105,11 +105,11 @@
       counter(math.equation).update(n => n - 1)
     }
   }
-  show math.equation.where(block: false): it => locate(loc => [
-    #h(0.25em, weak: true)
-    #it
-    #h(0.25em, weak: true)
-  ])
+  show math.equation.where(block: false): it => {
+    h(0.25em, weak: true)
+    it
+    h(0.25em, weak: true)
+  }
 
   // Configure appearance of references
   show ref: it => {
