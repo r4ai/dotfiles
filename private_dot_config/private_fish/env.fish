@@ -206,3 +206,35 @@ end
 if test -e "$HOME/.elan/env"
     source $HOME/.elan/env
 end
+
+#* opencode
+if type -q opencode
+    fish_add_path /home/r4ai/.opencode/bin
+end
+
+#* vite+
+if test -e "$HOME/.vite-plus/env.fish"
+    source "$HOME/.vite-plus/env.fish"
+
+    function __vite_plus_prioritize_path --description 'Keep Vite+ ahead of mise-managed tool paths'
+        set -l vite_plus_bin "$HOME/.vite-plus/bin"
+
+        if set -l index (contains -i -- "$vite_plus_bin" $PATH)
+            set -e PATH[$index]
+        end
+
+        set -gx PATH "$vite_plus_bin" $PATH
+    end
+
+    __vite_plus_prioritize_path
+
+    if status is-interactive
+        function __vite_plus_prioritize_path_on_prompt --on-event fish_prompt
+            __vite_plus_prioritize_path
+        end
+
+        function __vite_plus_prioritize_path_on_pwd --on-variable PWD
+            __vite_plus_prioritize_path
+        end
+    end
+end
