@@ -9,6 +9,8 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/r4ai/dotfiles/main/init/base/init.sh)"
 ```
 
+手動でセットアップする場合は [docs/manual-setup.md](./docs/manual-setup.md) を参照。
+
 ## このスクリプトが行うこと
 
 1. Homebrew, mise をインストールする。
